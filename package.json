@@ -1,0 +1,34 @@
+{
+  "name": "ProcessDocumentation",
+  "version": "0.0.1",
+  "description": "An utility module to read Intalio|Designer process diagrams and generate text documentation",
+  "main": "lib/process_documentation.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^1.9.1",
+    "grunt": "^0.4.4",
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt-mocha-test": "^0.10.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:estebanf/ProcessDocumentation.git"
+  },
+  "keywords": [
+    "estebanf",
+    "intalio",
+    "bpmn"
+  ],
+  "author": "Esteban Felipe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/estebanf/ProcessDocumentation/issues"
+  },
+  "homepage": "https://github.com/estebanf/ProcessDocumentation"
+}
