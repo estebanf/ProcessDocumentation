@@ -1,3 +1,5 @@
 node_modules/
 lib/
 *.swp
+processDocumentation.sublime-project
+processDocumentation.sublime-workspace

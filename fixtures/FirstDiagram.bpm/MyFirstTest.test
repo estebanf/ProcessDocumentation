@@ -1,0 +1,17 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<sim:process xmlns:sim="http://www.intalio.com/bpms/designer/sim" poolID="_V7IrENRgEeOgFNGPBANlUQ" poolDisplayName="process" startingActivitiesIDs="[_nibtYNRqEeOgFNGPBANlUQ]" bpdmFile="FirstDiagram.bpm/_V7IrENRgEeOgFNGPBANlUQ.bpdm">
+  <sim:activities>
+    <sim:activity ID="_nibtYNRqEeOgFNGPBANlUQ" scopeID="_V7IrENRgEeOgFNGPBANlUQ" displayName="Recieve data" isMyRole="true">
+      <sim:request><![CDATA[<message xmlns:this="http://thisdiagram/process">
+  <body>
+    <this:Recieve_dataRequest>Hello world</this:Recieve_dataRequest>
+  </body>
+</message>]]></sim:request>
+    </sim:activity>
+    <sim:activity ID="_rdh_QNSREeOgFNGPBANlUQ" scopeID="_rdeU4NSREeOgFNGPBANlUQ" displayName="Reply with fault" isMyRole="true"></sim:activity>
+    <sim:activity ID="_-5qaENSMEeOgFNGPBANlUQ" scopeID="_WjWEUNSREeOgFNGPBANlUQ" displayName="approve" isMyRole="true"></sim:activity>
+    <sim:activity ID="_ks8dENRhEeOgFNGPBANlUQ" scopeID="_WjWEUNSREeOgFNGPBANlUQ" displayName="Reply" isMyRole="true" hasBreakpoint="true"></sim:activity>
+    <sim:activity ID="_QNrYMNSQEeOgFNGPBANlUQ" scopeID="_WjWEUNSREeOgFNGPBANlUQ" displayName="invalid" isMyRole="true"></sim:activity>
+    <sim:activity ID="_ALjfwNSNEeOgFNGPBANlUQ" scopeID="_WjWEUNSREeOgFNGPBANlUQ" displayName="Deny" isMyRole="true"></sim:activity>
+  </sim:activities>
+</sim:process>

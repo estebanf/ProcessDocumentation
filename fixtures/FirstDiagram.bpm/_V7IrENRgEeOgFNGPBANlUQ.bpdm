@@ -1,0 +1,167 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:client="http://thisdiagram/client" xmlns:tns="http://www.example.org/TrainingSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:this="http://thisdiagram/process" xmlns:diag="http://thisdiagram" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/process">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/client" bpdm:prefix="client" bpdm:comment="contrib=&apos;partner-pool:///_qyykgNRiEeOgFNGPBANlUQ"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.example.org/TrainingSchema" bpdm:prefix="tns" bpdm:comment="contrib=&apos;project:///TrainingSchema.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/process" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_qyykgNRiEeOgFNGPBANlUQ"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types">
+            <wsdl:portType name="Forclient">
+                <wsdl:operation name="Recieve_data" bpdm:source="partner-pool:///_qyykgNRiEeOgFNGPBANlUQ">
+                    <wsdl:input message="this:Recieve_dataRequest" name="Recieve_data"/>
+                    <wsdl:output message="this:Recieve_dataResponse" name="Recieve_dataResponse"/>
+                    <wsdl:fault name="InvalidData" message="this:Recieve_dataInvalidData"/>
+                </wsdl:operation>
+            </wsdl:portType>
+            <xs:element name="Recieve_dataRequest" type="tns:RequestType" bpdm:source="partner-pool:///_qyykgNRiEeOgFNGPBANlUQ"/>
+            <wsdl:message name="Recieve_dataRequest" bpdm:source="partner-pool:///_qyykgNRiEeOgFNGPBANlUQ">
+                <wsdl:part name="body" element="this:Recieve_dataRequest"/>
+            </wsdl:message>
+            <xs:element name="Recieve_dataResponse" type="tns:ResponseType" bpdm:source="partner-pool:///_qyykgNRiEeOgFNGPBANlUQ"/>
+            <wsdl:message name="Recieve_dataResponse" bpdm:source="partner-pool:///_qyykgNRiEeOgFNGPBANlUQ">
+                <wsdl:part name="body" element="this:Recieve_dataResponse"/>
+            </wsdl:message>
+            <xs:element name="Recieve_dataInvalidData" type="tns:ErrorType" bpdm:source="partner-pool:///_qyykgNRiEeOgFNGPBANlUQ"/>
+            <wsdl:message name="Recieve_dataInvalidData" bpdm:source="partner-pool:///_qyykgNRiEeOgFNGPBANlUQ">
+                <wsdl:part name="body" element="this:Recieve_dataInvalidData"/>
+            </wsdl:message>
+            <bpel:binding name="CanonicBindingForclient" type="this:Forclient" bpdm:isSynchronized="true"/>
+        </bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_qyykgNRiEeOgFNGPBANlUQ" bpdm:label="client"/>
+        <bpdm:namespaceContributor bpdm:url="project:///TrainingSchema.xsd"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="process" bpdm:ID="_V7IrENRgEeOgFNGPBANlUQ" bpdm:documentation="This is our process">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="clientAndProcessPlkVar" partnerLinkType="diag:clientAndProcess" myRole="process_for_client" bpdm:enableSharing="false" bpdm:providedService="this:CanonicServiceForclient" bpdm:providedPort="canonicPort" bpdm:provideSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/process/client" bpdm:providedIsDefault="true" bpdm:clientTasks="_V7IrENRgEeOgFNGPBANlUQ:_nibtYNRqEeOgFNGPBANlUQ, _WjWEUNSREeOgFNGPBANlUQ:_ks8dENRhEeOgFNGPBANlUQ, _rdeU4NSREeOgFNGPBANlUQ:_rdh_QNSREeOgFNGPBANlUQ" bpdm:isManaged="true" bpdm:otherPoolId="_qyykgNRiEeOgFNGPBANlUQ"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="thisRecieve_dataRequestMsg" messageType="this:Recieve_dataRequest" bpdm:id="_qfQq4NRqEeOgFNGPBANlUQ" bpdm:messageIds="inc:_qe10INRqEeOgFNGPBANlUQ"/>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask eventType="start: message" operation="Recieve_data" partnerLink="clientAndProcessPlkVar" portType="this:Forclient" isMyRole="true" enableSharing="false" bpdm:label="Recieve data" bpdm:ID="_nibtYNRqEeOgFNGPBANlUQ">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="thisRecieve_dataRequestMsg" bpdm:msgVarScopeId="_V7IrENRgEeOgFNGPBANlUQ" bpdm:variableIsManaged="true" bpdm:messageType="this:Recieve_dataRequest" bpdm:ID="_qe10INRqEeOgFNGPBANlUQ"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpel:scope bpdm:label="SubProcess" bpdm:ID="_WjWEUNSREeOgFNGPBANlUQ">
+                <bpel:variables>
+                    <bpel:variable name="thisRecieve_dataResponseMsg" messageType="this:Recieve_dataResponse" bpdm:id="_rBOvgNRqEeOgFNGPBANlUQ" bpdm:messageIds=" out:_rBBUINRqEeOgFNGPBANlUQ">
+                        <bpel:from bpdm:toPart="body">
+                            <bpel:literal bpdm:linkedMessageType="this:Recieve_dataResponse" bpdm:linkedPart="body"></bpel:literal>
+                        </bpel:from>
+                    </bpel:variable>
+                </bpel:variables>
+                <bpel:faultHandlers>
+                    <bpel:catch faultName="this:invalid">
+                        <bpdm:eventHandler bpdm:label="Error_Intermediate_Event" bpdm:ID="_o0F30NSREeOgFNGPBANlUQ" bpdm:type="error" faultName="this:invalid"></bpdm:eventHandler>
+                        <bpel:scope bpdm:label="SubProcess" bpdm:ID="_rdeU4NSREeOgFNGPBANlUQ">
+                            <bpel:variables>
+                                <bpel:variable name="thisInvalidDataMsg" messageType="this:Recieve_dataInvalidData" bpdm:id="_N0lSgNSTEeOgFNGPBANlUQ" bpdm:messageIds=" out:_N0YeMNSTEeOgFNGPBANlUQ">
+                                    <bpel:from bpdm:toPart="body">
+                                        <bpel:literal bpdm:linkedMessageType="this:Recieve_dataInvalidData" bpdm:linkedPart="body"></bpel:literal>
+                                    </bpel:from>
+                                </bpel:variable>
+                            </bpel:variables>
+                            <bpel:sequence>
+                                <bpdm:messagingtask eventType="end: message" operation="Recieve_data" partnerLink="clientAndProcessPlkVar" portType="this:Forclient" isMyRole="true" enableSharing="false" bpdm:label="Reply with fault" bpdm:ID="_rdh_QNSREeOgFNGPBANlUQ">
+                                    <bpdm:linkset bpdm:type="assignments">
+                                        <bpel:copy>
+                                            <bpel:from>"Invalid amount data"</bpel:from>
+                                            <bpel:to>$thisInvalidDataMsg.body/tns:Message</bpel:to>
+<mapper:mapperLink>
+  <mapper:vertice id="542943021" targetPath="$thisInvalidDataMsg.body/tns:Message" targetedBy="516461183-arg0"></mapper:vertice>
+  <mapper:vertice id="516461183" dimension="175x25" location="364,59">
+    <mapper:value>"Invalid amount data"</mapper:value>
+  </mapper:vertice>
+</mapper:mapperLink>
+                                        </bpel:copy>
+                                        <bpel:copy>
+                                            <bpel:from>$thisRecieve_dataRequestMsg.body</bpel:from>
+                                            <bpel:to>$thisInvalidDataMsg.body/tns:Request</bpel:to>
+<mapper:mapperLink>
+  <mapper:vertice id="790047574" targetPath="$thisInvalidDataMsg.body/tns:Request" targetedBy="331051866-arg0"></mapper:vertice>
+  <mapper:vertice id="331051866" sourcePath="$thisRecieve_dataRequestMsg.body"></mapper:vertice>
+</mapper:mapperLink>
+                                        </bpel:copy>
+                                    </bpdm:linkset>
+                                    <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="thisInvalidDataMsg" bpdm:msgVarScopeId="_rdeU4NSREeOgFNGPBANlUQ" bpdm:variableIsManaged="true" bpdm:messageType="this:Recieve_dataInvalidData" faultNcName="InvalidData" bpdm:ID="_N0YeMNSTEeOgFNGPBANlUQ"></bpdm:linkset>
+                                </bpdm:messagingtask>
+                            </bpel:sequence>
+                        </bpel:scope>
+                    </bpel:catch>
+                </bpel:faultHandlers>
+                <bpel:sequence>
+                    <bpdm:gateway bpdm:label="check amount" bpdm:ID="_8x0j0NSMEeOgFNGPBANlUQ" bpdm:gatewayType="data_xor" bpdm:isMerge="false">
+                        <bpdm:linkset bpdm:type="case" bpdm:default="false" bpdm:ID="_-50LENSMEeOgFNGPBANlUQ" bpdm:targetDisplayName="&lt;=5000">
+                            <bpel:condition>$thisRecieve_dataRequestMsg.body/tns:Amount&lt;= 5000<mapper:mapperLink><mapper:vertice id="613698343" targetPath="$condition" targetedBy="1449712810-arg2"></mapper:vertice><mapper:vertice id="1449712810" dimension="175x25" location="232,58"><mapper:value>&lt;=</mapper:value></mapper:vertice><mapper:vertice id="155039206" sourcePath="$thisRecieve_dataRequestMsg.body/tns:Amount" targetedBy="1449712810-arg0"></mapper:vertice><mapper:vertice id="2139054047" dimension="175x25" location="30,124" targetedBy="1449712810-arg1"><mapper:value>5000</mapper:value></mapper:vertice></mapper:mapperLink></bpel:condition>
+                        </bpdm:linkset>
+                        <bpdm:linkset bpdm:type="case" bpdm:default="true" bpdm:ID="_ALspsNSNEeOgFNGPBANlUQ" bpdm:targetDisplayName="default"></bpdm:linkset>
+                        <bpel:sequence>
+                            <bpdm:gateway bpdm:label="Exclusive_Data-Based_Gateway" bpdm:ID="_MlPR4NSQEeOgFNGPBANlUQ" bpdm:gatewayType="data_xor" bpdm:isMerge="false">
+                                <bpdm:linkset bpdm:type="case" bpdm:default="false" bpdm:ID="_OKWOgNSQEeOgFNGPBANlUQ" bpdm:targetDisplayName="&gt; 0">
+                                    <bpel:condition>$thisRecieve_dataRequestMsg.body/tns:Amount &gt; 0
+<mapper:mapperLink>
+  <mapper:vertice id="774062277" targetPath="$condition" targetedBy="1418994303-arg2"></mapper:vertice>
+  <mapper:vertice id="1418994303" dimension="175x25" location="264,84">
+    <mapper:value>&gt;</mapper:value>
+  </mapper:vertice>
+  <mapper:vertice id="994318311" sourcePath="$thisRecieve_dataRequestMsg.body/tns:Amount" targetedBy="1418994303-arg0"></mapper:vertice>
+  <mapper:vertice id="1721514940" dimension="175x25" location="60,24" targetedBy="1418994303-arg1">
+    <mapper:value>0</mapper:value>
+  </mapper:vertice>
+</mapper:mapperLink></bpel:condition>
+                                </bpdm:linkset>
+                                <bpdm:linkset bpdm:type="case" bpdm:default="true" bpdm:ID="_QNz7ENSQEeOgFNGPBANlUQ" bpdm:targetDisplayName="default"></bpdm:linkset>
+                                <bpel:sequence>
+                                    <bpdm:messagingtask bpdm:label="approve" bpdm:ID="_-5qaENSMEeOgFNGPBANlUQ">
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>"Approved"</bpel:from>
+                                                <bpel:to>$thisRecieve_dataResponseMsg.body/tns:Decision</bpel:to><mapper:mapperLink><mapper:vertice id="1020165974" targetPath="$thisRecieve_dataResponseMsg.body/tns:Decision" targetedBy="690908954-arg0"></mapper:vertice><mapper:vertice id="690908954" dimension="175x25" location="270,113"><mapper:value>"Approved"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                    <bpdm:gateway bpdm:label="Exclusive_Data-Based_Gateway" bpdm:ID="_DdgYsNSNEeOgFNGPBANlUQ" bpdm:gatewayType="data_xor" bpdm:isMerge="true"></bpdm:gateway>
+                                    <bpdm:messagingtask eventType="end: message" operation="Recieve_data" partnerLink="clientAndProcessPlkVar" portType="this:Forclient" isMyRole="true" enableSharing="false" bpdm:label="Reply" bpdm:ID="_ks8dENRhEeOgFNGPBANlUQ">
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>$ode:pid</bpel:from>
+                                                <bpel:to>$thisRecieve_dataResponseMsg.body/tns:ProcessId</bpel:to><mapper:mapperLink><mapper:vertice id="487717894" targetPath="$thisRecieve_dataResponseMsg.body/tns:ProcessId" targetedBy="447453578-arg0"></mapper:vertice><mapper:vertice id="447453578" sourcePath="$ode:pid"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="thisRecieve_dataResponseMsg" bpdm:msgVarScopeId="_WjWEUNSREeOgFNGPBANlUQ" bpdm:variableIsManaged="true" bpdm:messageType="this:Recieve_dataResponse" bpdm:ID="_rBBUINRqEeOgFNGPBANlUQ"></bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                </bpel:sequence>
+                                <bpel:sequence>
+                                    <bpdm:messagingtask eventType="intermediate: error" bpdm:label="invalid" bpdm:ID="_QNrYMNSQEeOgFNGPBANlUQ">
+                                        <bpdm:thrownFault faultName="this:invalid"/>
+                                    </bpdm:messagingtask>
+                                </bpel:sequence>
+                            </bpdm:gateway>
+                        </bpel:sequence>
+                        <bpel:sequence>
+                            <bpdm:messagingtask bpdm:label="Deny" bpdm:ID="_ALjfwNSNEeOgFNGPBANlUQ">
+                                <bpdm:linkset bpdm:type="assignments">
+                                    <bpel:copy>
+                                        <bpel:from>"Denied"</bpel:from>
+                                        <bpel:to>$thisRecieve_dataResponseMsg.body/tns:Decision</bpel:to><mapper:mapperLink><mapper:vertice id="940438538" targetPath="$thisRecieve_dataResponseMsg.body/tns:Decision" targetedBy="1124591174-arg0"></mapper:vertice><mapper:vertice id="1124591174" dimension="175x25" location="251,93"><mapper:value>"Denied"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                </bpdm:linkset>
+                            </bpdm:messagingtask>
+                            <bpdm:gateway bpdm:label="Exclusive_Data-Based_Gateway" bpdm:ID="_DdgYsNSNEeOgFNGPBANlUQ" bpdm:gatewayType="data_xor" bpdm:isMerge="true"></bpdm:gateway>
+                            <bpdm:messagingtask eventType="end: message" operation="Recieve_data" partnerLink="clientAndProcessPlkVar" portType="this:Forclient" isMyRole="true" enableSharing="false" bpdm:label="Reply" bpdm:ID="_ks8dENRhEeOgFNGPBANlUQ">
+                                <bpdm:linkset bpdm:type="assignments">
+                                    <bpel:copy>
+                                        <bpel:from>$ode:pid</bpel:from>
+                                        <bpel:to>$thisRecieve_dataResponseMsg.body/tns:ProcessId</bpel:to><mapper:mapperLink><mapper:vertice id="487717894" targetPath="$thisRecieve_dataResponseMsg.body/tns:ProcessId" targetedBy="447453578-arg0"></mapper:vertice><mapper:vertice id="447453578" sourcePath="$ode:pid"></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                </bpdm:linkset>
+                                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="thisRecieve_dataResponseMsg" bpdm:msgVarScopeId="_WjWEUNSREeOgFNGPBANlUQ" bpdm:variableIsManaged="true" bpdm:messageType="this:Recieve_dataResponse" bpdm:ID="_rBBUINRqEeOgFNGPBANlUQ"></bpdm:linkset>
+                            </bpdm:messagingtask>
+                        </bpel:sequence>
+                    </bpdm:gateway>
+                </bpel:sequence>
+            </bpel:scope>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>
