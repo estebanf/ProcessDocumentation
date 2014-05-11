@@ -3,8 +3,9 @@ should = require('chai').should()
 expect = require('chai').expect
 fs = require 'fs'
 _ = require 'lodash'
-sinon = require 'sinon'
+util = require 'util'
 pDoc = require('../lib/process_documentation.js')
+
 fileUtils = require('../lib/fileUtils')
 
 fixtures = fs.readdirSync 'fixtures'
@@ -22,11 +23,12 @@ for folder in folders
           documentation.parse ()->
              expect(documentation.pools).to.not.be.undefined
              expect(documentation.pools).to.have.length.above(1)
+             console.log(util.inspect(documentation.pools, { showHidden: true, depth: null }))
              done()
-      it "can process the FirstDiagram fixture from data", (done) ->
-        documentation = new pDoc()
-        documentation.parseFiles diagram, (err, data) ->
-           expect(documentation.pools).to.not.be.undefined
-           expect(documentation.pools).to.have.length.above(1)
-           console.log documentation.pools
-           done()
+      # it "can process the FirstDiagram fixture from data", (done) ->
+      #   documentation = new pDoc()
+      #   documentation.parseFiles diagram, (err, data) ->
+      #      expect(documentation.pools).to.not.be.undefined
+      #      expect(documentation.pools).to.have.length.above(1)
+      #      # console.log(util.inspect(documentation.pools, { showHidden: true, depth: null }))
+      #      done()

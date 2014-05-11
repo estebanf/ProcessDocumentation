@@ -7,6 +7,9 @@ module.exports = (grunt) ->
           'lib/modelerParser.js':['src/modelerParser.coffee']
           'lib/fileUtils.js':['src/fileUtils.coffee']
           'lib/poolParser.js':['src/poolParser.coffee']
+          'lib/scopeParser.js':['src/scopeParser.coffee']
+          'lib/messagingtaskParser.js':['src/messagingtaskParser.coffee']
+          'lib/gatewayParser.js':['src/gatewayParser.coffee']
     mochaTest:
       options:
         reporter: 'nyan'

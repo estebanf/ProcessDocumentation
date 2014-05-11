@@ -7,7 +7,7 @@ class ModelerParser
   parse: (cb) ->
     pools = _.map @data['bpmn:BpmnDiagram'].pools, (item) ->
       poolData = item['$']
-      pool = { id:poolData.iD, name:poolData.name, doc:poolData.documentation }
+      pool = { id:poolData.iD }
       return pool
     cb(pools)
 

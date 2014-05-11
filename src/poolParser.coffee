@@ -1,4 +1,5 @@
 _ = require 'lodash'
+scopeParser = require './scopeParser'
 
 class PoolParser
   constructor: (pool,poolData)->
@@ -6,13 +7,12 @@ class PoolParser
     @data = poolData
 
   parse: (errCallback, doneCallback) ->
-    scope =  @data['bpel:process']['bpel:scope']
-    console.log scope[0]['bpel:sequence']
-    # for key in scope
-    #   console.log key['bpel:sequence']
-    console.log '============'
+    scope =  @data['bpel:process']['bpel:scope'][0]
+    parser = new scopeParser(@pool,scope)
+    parser.parse errCallback, (err,data) ->
+      errCallback(err) if err
 
-    doneCallback()  
+      doneCallback(data)  
 
 
 module.exports = PoolParser
